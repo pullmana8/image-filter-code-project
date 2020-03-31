@@ -1,0 +1,25 @@
+{
+  "name": "image-filter-code-project",
+  "version": "1.0.0",
+  "description": "Image Filter Microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pullmana8/image-filter-code-project.git"
+  },
+  "keywords": [
+    "api",
+    "image",
+    "filter",
+    "express"
+  ],
+  "author": "Antonette Caldwell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pullmana8/image-filter-code-project/issues"
+  },
+  "homepage": "https://github.com/pullmana8/image-filter-code-project#readme"
+}
