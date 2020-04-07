@@ -14,26 +14,16 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
     app.use(bodyParser.json());
 
     // @TODO
-    app.get('/filteredimage', async (req, res) => {
-
-        let { image_url } = req.query;
-
-        if (!image_url) {
-            return res.status(400).send(`Invalid request. image_url is required to process the image`);
+    app.get('/filteredimage', async(req: Request, res: Response) => {
+        let {image_url} = req.query;
+        if(!image_url){
+            return res.status(400).send(`Invalid url or no url`): //throws 400 error in case there is no url or invalid url
         }
-
-        try {
-            const filteredpath = await filterImageFromURL(image_url)
-
-            await res.status(200).sendFile(filteredpath, {}, (err) => {
-                if (err) {
-                    return res.status(422).send(`Not able to process image`)
-                }
-                deleteLocalFiles([filteredpath])
-            })
-        } catch (err) {
-            res.status(422).send(`Not able to process image. Make sure the image path url is correct`)
-        }
+        // To download the image, send to the client and delete file from server
+        filterImageFromURL(image_url).then(filteredpath => {
+            res.status(200).sendFile(filteredpath, () => {deletedLocalFiles)[filteredpath]};} );
+        })
+        
     });
 
     // END @TODO1
